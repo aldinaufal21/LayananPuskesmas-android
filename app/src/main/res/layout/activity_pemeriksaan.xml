@@ -33,7 +33,7 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/formGolDarah"
+            android:id="@+id/spinnerPoli"
             android:layout_width="390dp"
             android:layout_height="50dp"
             android:background="@drawable/kotak_shadow"
@@ -42,7 +42,7 @@
             android:entries="@array/poli" />
 
         <EditText
-            android:id="@+id/formPassword"
+            android:id="@+id/formKeluhan"
             android:layout_width="390dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -55,7 +55,7 @@
             android:paddingLeft="10dp" />
 
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonPeriksa"
             android:layout_width="200dp"
             android:layout_height="45dp"
             android:text="Periksa"

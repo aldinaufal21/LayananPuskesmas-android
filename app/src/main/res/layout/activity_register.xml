@@ -104,7 +104,7 @@
                     android:paddingLeft="10dp" />
 
                 <Spinner
-                    android:id="@+id/formGolDarah"
+                    android:id="@+id/spinnerPoli"
                     android:layout_width="390dp"
                     android:layout_height="50dp"
                     android:background="@drawable/kotak_shadow"
@@ -152,7 +152,7 @@
                     android:paddingLeft="10dp" />
 
                 <EditText
-                    android:id="@+id/formPassword"
+                    android:id="@+id/formKeluhan"
                     android:layout_width="390dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
