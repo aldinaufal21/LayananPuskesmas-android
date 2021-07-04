@@ -21,11 +21,27 @@ public class User {
     @SerializedName("tinggi_badan")
     public int tinggi_badan;
     @SerializedName("gol_darah")
-    public char gol_darah = 'c';
+    public String gol_darah;
     @SerializedName("tgl_lahir")
     public String tgl_lahir;
     @SerializedName("jenis_kelamin")
-    public int jenis_kelamin = 0;
+    public int jenis_kelamin;
+
+    public User(String email, String no_hp, String password, String nama, String alamat, int berat_badan, int tinggi_badan, String gol_darah, String tgl_lahir, String jenis_kelamin) {
+        this.email = email;
+        this.no_hp = no_hp;
+        this.password = password;
+        this.nama = nama;
+        this.alamat = alamat;
+        this.berat_badan = berat_badan;
+        this.tinggi_badan = tinggi_badan;
+        this.gol_darah = gol_darah;
+        this.tgl_lahir = tgl_lahir;
+        if(jenis_kelamin.equals("Laki-Laki"))
+            this.jenis_kelamin = 1;
+        else
+            this.jenis_kelamin = 2;
+    }
 
     public User(String no_hp, String password) {
         this.no_hp = no_hp;

@@ -14,6 +14,9 @@ public interface APIService {
     @POST("login")
     Call<UserResponse> login(@Body User user);
 
+    @POST("register")
+    Call<APIResponse> register(@Body User user);
+
     @GET("poli")
     Call<PoliResponse> getPoli();
 

@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         dialog = new ProgressDialog(this);
 
         binding.buttonLogin.setOnClickListener(this);
+        binding.daftar.setOnClickListener(this);
     }
 
     @Override
@@ -67,11 +68,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     dialog.dismiss();
                 }
             });
+        } else if (v.getId() == binding.daftar.getId()) {
+            Log.d("BTNCLICK", "Daftar");
+            moveToDaftar();
         }
     }
 
     private void moveToMain() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToDaftar() {
+        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
         startActivity(intent);
     }
 }
