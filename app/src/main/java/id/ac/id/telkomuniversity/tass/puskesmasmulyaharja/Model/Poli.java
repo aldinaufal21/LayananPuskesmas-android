@@ -35,4 +35,13 @@ public class Poli {
     public void setKode_antrian(String kode_antrian) {
         this.kode_antrian = kode_antrian;
     }
+
+    @Override
+    public String toString() {
+        return "Poli{" +
+                "id=" + id +
+                ", nama_poli='" + nama_poli + '\'' +
+                ", kode_antrian='" + kode_antrian + '\'' +
+                '}';
+    }
 }

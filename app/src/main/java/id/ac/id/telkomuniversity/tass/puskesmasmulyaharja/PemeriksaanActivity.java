@@ -6,9 +6,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,7 +28,7 @@ import retrofit2.Response;
 public class PemeriksaanActivity extends AppCompatActivity {
 
     private ActivityPemeriksaanBinding binding;
-    private String nama_poli;
+    private Poli poli;
     private String keluhan;
     private PoliSpinnerAdapter adapter;
     private Spinner spinner;
@@ -53,6 +55,7 @@ public class PemeriksaanActivity extends AppCompatActivity {
                     adapter = new PoliSpinnerAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, polis);
                     spinner.setAdapter(adapter);
                 }
+                Log.d("GET POLI RESULT", response.raw().toString());
             }
 
             @Override
@@ -67,13 +70,13 @@ public class PemeriksaanActivity extends AppCompatActivity {
                 dialog.setIndeterminate(true);
 //                if(binding.formKeluhan.getText().toString().isEmpty()) {
                     dialog.show();
-                    nama_poli = spinner.getSelectedItem().toString();
+                    poli = (Poli) spinner.getSelectedItem();
                     keluhan = binding.formKeluhan.getText().toString();
                     SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("login_key", Context.MODE_PRIVATE);
 
                     String id_user = sharedPref.getString("user_id", "1");
 
-                    Pemeriksaan pemeriksaan = new Pemeriksaan(getPoliId(nama_poli), keluhan, Integer.parseInt(id_user));
+                    Pemeriksaan pemeriksaan = new Pemeriksaan(poli.getId(), keluhan, Integer.parseInt(id_user));
 
                     Call<APIResponse> call = APIClient.getRetrofitInstance().addPemeriksaan(pemeriksaan);
                     call.enqueue(new Callback<APIResponse>() {
@@ -81,6 +84,15 @@ public class PemeriksaanActivity extends AppCompatActivity {
                         public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
                             if (response.isSuccessful()) {
                                 Log.d("PEMERIKSAAN", response.body().message);
+                                Toast.makeText(PemeriksaanActivity.this, "Berhasil membuat pemeriksaan", Toast.LENGTH_SHORT).show();
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        PemeriksaanActivity.this.finish();
+                                    }
+                                }, Toast.LENGTH_LONG);
+
                             }
                             dialog.dismiss();
                         }
@@ -93,16 +105,5 @@ public class PemeriksaanActivity extends AppCompatActivity {
 //                }
             }
         });
-    }
-
-    private int getPoliId(String nama_poli) {
-        Poli result = null;
-        for(Poli p : polis) {
-            if(nama_poli.equals(p.getNama_poli())) {
-                result = p;
-                break;
-            }
-        }
-        return result.getId();
     }
 }
