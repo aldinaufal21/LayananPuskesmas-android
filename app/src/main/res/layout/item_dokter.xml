@@ -7,14 +7,13 @@
 
     <ImageView
         android:id="@+id/itemDokterFoto"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
         app:srcCompat="@drawable/dokter"
         tools:srcCompat="@drawable/dokter" />
 
@@ -57,12 +56,54 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:text="jalan tb hasan kp cimesir rt 01/04 Rangkasbitung timur kab lebak"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/itemDokterFoto"
         app:layout_constraintTop_toBottomOf="@+id/itemDokterTTL" />
+
+    <TextView
+        android:id="@+id/itemDokterLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Poli: "
+        app:layout_constraintEnd_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toBottomOf="@+id/itemDokterFoto" />
+
+    <TextView
+        android:id="@+id/itemDokterLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Shift:"
+        app:layout_constraintEnd_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toBottomOf="@+id/itemDokterPoli" />
+
+    <TextView
+        android:id="@+id/itemDokterPoli"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="jantung"
+        app:layout_constraintEnd_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toBottomOf="@+id/itemDokterLabel" />
+
+    <TextView
+        android:id="@+id/itemDokterJamShift"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="16:33 - 17:34"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toBottomOf="@+id/itemDokterLabel2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,9 @@ public class Dokter {
     @SerializedName("poli_id")
     private int poli_id;
 
+    @SerializedName("poli")
+    private Poli poli;
+
     public int getId() {
         return id;
     }
@@ -67,5 +70,9 @@ public class Dokter {
 
     public void setPoli_id(int poli_id) {
         this.poli_id = poli_id;
+    }
+
+    public Poli getPoli() {
+        return poli;
     }
 }

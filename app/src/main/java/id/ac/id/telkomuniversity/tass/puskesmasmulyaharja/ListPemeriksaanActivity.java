@@ -13,9 +13,8 @@ import android.util.Log;
 import android.view.View;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Adapter.PemeriksaanListAdapter;
-import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Adapter.PoliSpinnerAdapter;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.Pemeriksaan;
-import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.PemeriksaanResponse;
+import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.ListPemeriksaanResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Service.APIClient;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.databinding.ActivityListPemeriksaanBinding;
 import retrofit2.Call;
@@ -46,10 +45,10 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
         dialog.show();
         dialog.setIndeterminate(true);
 
-        Call<PemeriksaanResponse> call = APIClient.getRetrofitInstance().getPemeriksaanByPasien(id_user);
-        call.enqueue(new Callback<PemeriksaanResponse>() {
+        Call<ListPemeriksaanResponse> call = APIClient.getRetrofitInstance().getPemeriksaanByPasien(id_user);
+        call.enqueue(new Callback<ListPemeriksaanResponse>() {
             @Override
-            public void onResponse(Call<PemeriksaanResponse> call, Response<PemeriksaanResponse> response) {
+            public void onResponse(Call<ListPemeriksaanResponse> call, Response<ListPemeriksaanResponse> response) {
                 if (response.isSuccessful()) {
                     Log.d("PEMERIKSAAN", response.body().data.pemeriksaans.toString());
                     adapter = new PemeriksaanListAdapter(response.body().data.getPemeriksaans(), ListPemeriksaanActivity.this);
@@ -62,7 +61,7 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
             }
 
             @Override
-            public void onFailure(Call<PemeriksaanResponse> call, Throwable t) {
+            public void onFailure(Call<ListPemeriksaanResponse> call, Throwable t) {
             }
         });
     }
@@ -77,6 +76,7 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
         } else {
             return;
         }
+        intent.putExtra("id_pemeriksaan", item.getId()+"");
         startActivity(intent);
     }
 }

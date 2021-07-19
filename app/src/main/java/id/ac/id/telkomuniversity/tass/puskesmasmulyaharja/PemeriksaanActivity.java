@@ -87,7 +87,7 @@ public class PemeriksaanActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
                             if (response.isSuccessful()) {
-                                Log.d("PEMERIKSAAN", response.body().message);
+//                                Log.d("PEMERIKSAAN", response.body().message);
                                 Toast.makeText(PemeriksaanActivity.this, "Berhasil membuat pemeriksaan", Toast.LENGTH_SHORT).show();
 
                                 new Handler().postDelayed(new Runnable() {

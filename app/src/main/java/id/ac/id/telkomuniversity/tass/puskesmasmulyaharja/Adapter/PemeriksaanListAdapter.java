@@ -34,7 +34,7 @@ public class PemeriksaanListAdapter extends RecyclerView.Adapter<PemeriksaanList
     @Override
     public void onBindViewHolder(@NonNull PemeriksaanListAdapter.PemeriksaanViewHolder holder, int position) {
         Pemeriksaan item = list.get(position);
-        holder.nama.setText(item.getNama_pasien());
+        holder.nama.setText(item.getPasien().getNama());
         int status = item.getStatus();
         if(status >= 2 && status <= 4) {
             holder.status.setText("Pemeriksaan Online");

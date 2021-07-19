@@ -4,8 +4,10 @@ import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.Pemeriksaan;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.User;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.APIResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.DokterResponse;
-import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.PemeriksaanResponse;
+import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.ListPemeriksaanResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.PoliResponse;
+import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.PraktikResponse;
+import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.SinglePemeriksaanResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.UserResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -27,8 +29,14 @@ public interface APIService {
     Call<APIResponse> addPemeriksaan(@Body Pemeriksaan pemeriksaan);
 
     @GET("pemeriksaan/id/{id}")
-    Call<PemeriksaanResponse> getPemeriksaanByPasien(@Path("id") String id_pasien);
+    Call<ListPemeriksaanResponse> getPemeriksaanByPasien(@Path("id") String id_pasien);
+
+    @GET("pemeriksaan/detail/{id}")
+    Call<SinglePemeriksaanResponse> getPemeriksaanByID(@Path("id") String id_pemeriksaan);
 
     @GET("dokter")
     Call<DokterResponse> getDokterList();
+
+    @GET("praktik")
+    Call<PraktikResponse> getPraktikList();
 }

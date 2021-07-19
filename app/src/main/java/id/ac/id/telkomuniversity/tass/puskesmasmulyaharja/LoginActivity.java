@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.User;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.UserResponse;
@@ -56,9 +57,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                     if(response.isSuccessful()){
-                        sharedPref.edit().putString("user_id", ""+response.body().data.user.id).apply();
-                        moveToMain();
-                        LoginActivity.this.finish();
+                        if(response.body().getStatus() == 200) {
+                            sharedPref.edit().putString("user_id", ""+response.body().data.user.id).apply();
+                            moveToMain();
+                            LoginActivity.this.finish();
+                        } else {
+                            Toast.makeText(LoginActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                        }
                     }
                     dialog.dismiss();
                 }

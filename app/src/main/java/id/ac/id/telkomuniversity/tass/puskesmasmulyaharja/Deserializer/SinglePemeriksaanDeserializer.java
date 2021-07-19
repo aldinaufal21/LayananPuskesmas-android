@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.Pemeriksaan;
 
-public class PemeriksaanDeserializer {
+public class SinglePemeriksaanDeserializer {
     @SerializedName("pemeriksaan")
-    public ArrayList<Pemeriksaan> pemeriksaans;
+    public Pemeriksaan pemeriksaan;
 
-    public ArrayList<Pemeriksaan> getPemeriksaans() {
-        return pemeriksaans;
+    public Pemeriksaan getPemeriksaan() {
+        return pemeriksaan;
     }
 
-    public void setPemeriksaans(ArrayList<Pemeriksaan> pemeriksaans) {
-        this.pemeriksaans = pemeriksaans;
+    public void setPemeriksaan(Pemeriksaan pemeriksaan) {
+        this.pemeriksaan = pemeriksaan;
     }
 }

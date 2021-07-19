@@ -72,6 +72,34 @@ public class User {
         this.password = password;
     }
 
+    public String getNama() {
+        return nama;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public int getBerat_badan() {
+        return berat_badan;
+    }
+
+    public int getTinggi_badan() {
+        return tinggi_badan;
+    }
+
+    public String getGol_darah() {
+        return gol_darah;
+    }
+
+    public String getTgl_lahir() {
+        return tgl_lahir;
+    }
+
+    public int getJenis_kelamin() {
+        return jenis_kelamin;
+    }
+
     @Override
     public String toString() {
         return "User{" +

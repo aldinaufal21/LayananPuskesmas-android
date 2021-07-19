@@ -2,15 +2,15 @@ package id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses;
 
 import com.google.gson.annotations.SerializedName;
 
-import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Deserializer.PemeriksaanDeserializer;
+import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Deserializer.ListPemeriksaanDeserializer;
 
-public class PemeriksaanResponse {
+public class ListPemeriksaanResponse {
     @SerializedName("status")
     public int status;
     @SerializedName("message")
     public String message;
     @SerializedName("data")
-    public PemeriksaanDeserializer data;
+    public ListPemeriksaanDeserializer data;
 
     public int getStatus() {
         return status;
@@ -20,7 +20,7 @@ public class PemeriksaanResponse {
         return message;
     }
 
-    public PemeriksaanDeserializer getData() {
+    public ListPemeriksaanDeserializer getData() {
         return data;
     }
 }

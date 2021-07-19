@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Pemeriksaan {
+    @SerializedName("id")
+    private int id;
+
     @SerializedName("created_at")
     private String tanggal;
 
@@ -29,8 +32,11 @@ public class Pemeriksaan {
     @SerializedName("status")
     private int status;
 
-    @SerializedName("nama_pasien")
-    private String nama_pasien;
+    @SerializedName("pasien")
+    private User pasien;
+
+    @SerializedName("antrian")
+    private Antrian antrian;
 
     public Pemeriksaan(int id_poli, String keluhan, int id_pasien) {
         this.id_poli = id_poli;
@@ -42,6 +48,10 @@ public class Pemeriksaan {
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         this.tanggal = df.format(c);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTanggal() {
@@ -100,8 +110,8 @@ public class Pemeriksaan {
         this.status = status;
     }
 
-    public String getNama_pasien() {
-        return nama_pasien;
+    public User getPasien() {
+        return pasien;
     }
 
     public String getStatusDetail() {
@@ -127,5 +137,9 @@ public class Pemeriksaan {
                 break;
         }
         return msg;
+    }
+
+    public Antrian getAntrian() {
+        return antrian;
     }
 }

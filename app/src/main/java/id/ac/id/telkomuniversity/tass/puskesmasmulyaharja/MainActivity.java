@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         binding.menuPraktik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToActivity(DokterListActivity.class);
+                moveToActivity(ListPraktikActivity.class);
             }
         });
 
