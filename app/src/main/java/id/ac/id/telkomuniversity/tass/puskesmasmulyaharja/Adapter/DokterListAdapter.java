@@ -38,12 +38,8 @@ public class DokterListAdapter extends RecyclerView.Adapter<DokterListAdapter.Do
         holder.jenis_kelamin.setText(item.getJenis_kelamin());
         holder.ttl.setText(item.getTtl());
         holder.alamat.setText(item.getAlamat());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onItemClick(item);
-            }
-        });
+        holder.foto.setImageResource(R.drawable.dokter);
+        holder.itemView.setOnClickListener(v -> listener.onItemClick(item));
     }
 
     @Override

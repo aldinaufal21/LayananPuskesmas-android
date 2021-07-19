@@ -44,6 +44,9 @@ public class PemeriksaanActivity extends AppCompatActivity {
 
         spinner = binding.spinnerPoli;
         dialog = new ProgressDialog(this);
+        dialog.setMessage("Mengambil data poli...");
+        dialog.setIndeterminate(true);
+        dialog.show();
 
         Call<PoliResponse> call = APIClient.getRetrofitInstance().getPoli();
         call.enqueue(new Callback<PoliResponse>() {
@@ -54,6 +57,7 @@ public class PemeriksaanActivity extends AppCompatActivity {
                     polis = response.body().data.polis;
                     adapter = new PoliSpinnerAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, polis);
                     spinner.setAdapter(adapter);
+                    dialog.dismiss();
                 }
                 Log.d("GET POLI RESULT", response.raw().toString());
             }

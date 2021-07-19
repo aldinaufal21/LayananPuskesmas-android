@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if(response.isSuccessful()){
                         sharedPref.edit().putString("user_id", ""+response.body().data.user.id).apply();
                         moveToMain();
-                        finish();
+                        LoginActivity.this.finish();
                     }
                     dialog.dismiss();
                 }

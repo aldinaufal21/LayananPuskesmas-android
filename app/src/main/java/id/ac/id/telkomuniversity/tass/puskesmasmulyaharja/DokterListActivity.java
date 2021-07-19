@@ -37,7 +37,8 @@ public class DokterListActivity extends AppCompatActivity implements DokterListA
         
         recyclerView = binding.rvListDokter;
         dialog = new ProgressDialog(this);
-        
+
+        dialog.setMessage("Mengambil data dokter...");
         dialog.show();
         dialog.setIndeterminate(true);
 

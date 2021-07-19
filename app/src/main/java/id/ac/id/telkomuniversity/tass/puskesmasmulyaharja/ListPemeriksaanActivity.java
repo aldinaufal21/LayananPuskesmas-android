@@ -42,6 +42,7 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("login_key", Context.MODE_PRIVATE);
         String id_user = sharedPref.getString("user_id", "1");
 
+        dialog.setMessage("Mengambil data pemeriksaan Anda...");
         dialog.show();
         dialog.setIndeterminate(true);
 
