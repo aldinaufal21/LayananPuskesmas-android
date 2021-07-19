@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         binding.menuAntrian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToActivity(DetailPemeriksaanOfflineActivity.class);
+                moveToActivity(ListPemeriksaanActivity.class);
             }
         });
 

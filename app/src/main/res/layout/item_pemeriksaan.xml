@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/itemPemeriksaanStatusDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="menunggu pemeriksaan"
+        android:textColor="@color/red"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/itemPemeriksaanStatusText"
+        app:layout_constraintTop_toBottomOf="@+id/itemPemeriksaanTanggal" />
+
+    <TextView
+        android:id="@+id/itemPemeriksaanStatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Status : "
+        android:textColor="@color/grey"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="@+id/itemPemeriksaanTanggal"
+        app:layout_constraintTop_toBottomOf="@+id/itemPemeriksaanTanggal" />
+
+    <TextView
+        android:id="@+id/itemPemeriksaanTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingTop="10dp"
+        android:text="20-01-2021"
+        android:textColor="@color/grey"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="@+id/itemPemeriksaanNama"
+        app:layout_constraintTop_toBottomOf="@+id/itemPemeriksaanNama" />
+
+    <TextView
+        android:id="@+id/itemPemeriksaanNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingTop="10dp"
+        android:text="NAUFAL CHANDRA"
+        android:textColor="@color/grey"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="@+id/itemPemeriksaanStatus"
+        app:layout_constraintTop_toBottomOf="@+id/itemPemeriksaanStatus" />
+
+    <TextView
+        android:id="@+id/itemPemeriksaanStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:paddingTop="5dp"
+        android:text="Pemeriksaan Offline"
+        android:textColor="@color/grey"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/itemPemeriksaanIconStatus"
+        app:layout_constraintTop_toTopOf="@+id/itemPemeriksaanIconStatus" />
+
+    <ImageView
+        android:id="@+id/itemPemeriksaanIconStatus"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/offline_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@
         <activity android:name=".DetailPemeriksaanOfflineActivity" />
         <activity android:name=".DetailPemeriksaanOnlineActivity" />
         <activity android:name=".KtpActivity" />
-        <activity android:name=".ListPemeriksaan" />
+        <activity android:name=".ListPemeriksaanActivity" />
         <activity android:name=".PemeriksaanActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" >
