@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         binding.menuInformasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                moveToActivity(ProfilActivity.class);
             }
         });
 

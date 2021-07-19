@@ -22,6 +22,9 @@ public interface APIService {
     @POST("register")
     Call<APIResponse> register(@Body User user);
 
+    @GET("pasien/id/{id}")
+    Call<UserResponse> getPasienByID(@Path("id") String id_pasien);
+
     @GET("poli")
     Call<PoliResponse> getPoli();
 

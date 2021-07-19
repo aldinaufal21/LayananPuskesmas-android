@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="202dp"
+                android:layout_height="87dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/logo_utama" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1200dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/kotak_user"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:text="Register"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/formNama"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_person_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Nama"
+                    android:inputType="text"
+                    android:paddingLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/formAlamat"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_address_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Alamat"
+                    android:inputType="text"
+                    android:paddingLeft="10dp" />
+
+
+                <Spinner
+                    android:id="@+id/spinnerJenisKelamin"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_shadow"
+                    android:entries="@array/jenis_kelamin" />
+
+                <EditText
+                    android:id="@+id/formBeratBadan"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_accessibility_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Berat badan"
+                    android:inputType="number"
+                    android:paddingLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/formTinggiBadan"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_accessibility_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Tinggi badan"
+                    android:inputType="number"
+                    android:paddingLeft="10dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerGolDar"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_shadow"
+                    android:entries="@array/golongan_darah" />
+
+                <EditText
+                    android:id="@+id/formTglLahir"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_date_range_24"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="Tanggal Lahir"
+                    android:inputType="text"
+                    android:paddingLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/formNohp"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_local_phone_24"
+                    android:drawablePadding="10dp"
+                    android:hint="No Handphone"
+                    android:inputType="number"
+                    android:paddingLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/formEmail"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/formPassword"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/formNIK"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/kotak_form"
+                    android:drawableStart="@drawable/ic_baseline_perm_identity_24"
+                    android:drawablePadding="10dp"
+                    android:hint="NIK"
+                    android:inputType="numberSigned"
+                    android:paddingLeft="10dp" />
+
+                <ImageView
+                    android:id="@+id/formFotoKTP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonPilihFile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/kotak_shadow"
+                        android:text="Ambil foto KTP" />
+
+                    <Button
+                        android:id="@+id/buttonUpdate2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/kotak_shadow"
+                        android:text="Update" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
