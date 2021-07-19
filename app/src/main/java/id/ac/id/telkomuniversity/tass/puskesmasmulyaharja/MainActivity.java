@@ -18,6 +18,13 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        binding.menuPraktik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToActivity(DokterListActivity.class);
+            }
+        });
+
         binding.menuPemeriksaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

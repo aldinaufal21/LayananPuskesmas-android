@@ -71,8 +71,10 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
         Intent intent;
         if(item.getStatus() >= 2 && item.getStatus() <= 4){
             intent = new Intent(this, DetailPemeriksaanOnlineActivity.class);
-        } else {
+        } else if(item.getStatus() == 5) {
             intent = new Intent(this, DetailPemeriksaanOfflineActivity.class);
+        } else {
+            return;
         }
         startActivity(intent);
     }

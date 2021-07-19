@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/itemDokterFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/itemDokterNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Nama Dokter"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toTopOf="@+id/itemDokterFoto" />
+
+    <TextView
+        android:id="@+id/itemDokterJenisKelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Laki-laki"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toBottomOf="@+id/itemDokterNama" />
+
+    <TextView
+        android:id="@+id/itemDokterTTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="2000-08-20"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toBottomOf="@+id/itemDokterJenisKelamin" />
+
+    <TextView
+        android:id="@+id/itemDokterAlamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="jalan tb hasan kp cimesir rt 01/04 Rangkasbitung timur kab lebak"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemDokterFoto"
+        app:layout_constraintTop_toBottomOf="@+id/itemDokterTTL" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
