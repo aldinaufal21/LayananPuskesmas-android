@@ -16,9 +16,11 @@ import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.R;
 
 public class PemeriksaanListAdapter extends RecyclerView.Adapter<PemeriksaanListAdapter.PemeriksaanViewHolder> {
     private ArrayList<Pemeriksaan> list;
+    private final OnItemClickListener listener;
 
-    public PemeriksaanListAdapter(ArrayList<Pemeriksaan> list) {
+    public PemeriksaanListAdapter(ArrayList<Pemeriksaan> list, OnItemClickListener listener) {
         this.list = list;
+        this.listener = listener;
     }
 
     @NonNull
@@ -43,6 +45,12 @@ public class PemeriksaanListAdapter extends RecyclerView.Adapter<PemeriksaanList
         }
         holder.tanggal.setText(item.getTanggal());
         holder.statusDetail.setText(item.getStatusDetail());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(item);
+            }
+        });
     }
 
     @Override
@@ -62,5 +70,9 @@ public class PemeriksaanListAdapter extends RecyclerView.Adapter<PemeriksaanList
             statusDetail = itemView.findViewById(R.id.itemPemeriksaanStatusDetail);
             icon = itemView.findViewById(R.id.itemPemeriksaanIconStatus);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Pemeriksaan item);
     }
 }
