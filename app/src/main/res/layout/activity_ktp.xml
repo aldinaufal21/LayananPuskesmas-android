@@ -1,99 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".KtpActivity"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:background="@color/white">
+    tools:context=".KtpActivity">
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:src="@drawable/logo_utama"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Data KTP"
-        android:textStyle="bold"
-        android:textSize="25sp"
         android:textColor="@color/colorPrimary"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp" />
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:text="Nik"
-        android:textSize="20sp"
         android:textColor="@color/colorPrimary"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/formNik"
-        android:layout_width="380dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:hint="Nik KTP"
+        android:inputType="number"
         android:outlineSpotShadowColor="@color/colorPrimary"
-        android:hint="Nik KTP" />
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="KTP Photo"
-        android:textSize="20sp"
         android:textColor="@color/colorPrimary"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/formNik"
+        app:layout_constraintStart_toStartOf="@+id/formNik"
+        app:layout_constraintTop_toBottomOf="@+id/formNik" />
 
     <LinearLayout
-        android:layout_width="390dp"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/ktp_image_shadow"
-        android:layout_marginTop="10dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_photo_camera_24"
-            android:layout_gravity="center"
-            android:layout_marginStart="100dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upload KTP"
-            android:textSize="20sp"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginStart="10dp"
-            android:layout_gravity="center"/>
+        android:orientation="horizontal">
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/formKTP"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:outlineSpotShadowColor="@color/colorPrimary"
-        android:hint="Foto KTP" />
+    <ImageView
+        android:id="@+id/formFotoKTP"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/ic_baseline_photo_camera_24" />
 
     <Button
-        android:layout_width="380dp"
+        android:id="@+id/buttonUploadKTP"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Input Data"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/colorPrimary"
-        android:textColor="@color/white" />
+        android:text="Input Data"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/formFotoKTP" />
 
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

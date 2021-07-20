@@ -9,10 +9,14 @@ import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.PoliResponse
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.PraktikResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.SinglePemeriksaanResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.UserResponse;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface APIService {
@@ -42,4 +46,8 @@ public interface APIService {
 
     @GET("praktik")
     Call<PraktikResponse> getPraktikList();
+
+    @Multipart
+    @POST("ktp/tambah/{id}")
+    Call<APIResponse> uploadKTP(@Path("id") String id_pasien, @Part MultipartBody.Part foto, @Part("nik") RequestBody nik);
 }

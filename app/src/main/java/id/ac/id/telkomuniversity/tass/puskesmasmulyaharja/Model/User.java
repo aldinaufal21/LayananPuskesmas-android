@@ -2,30 +2,34 @@ package id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 public class User {
     @SerializedName("email")
-    public String email;
+    private String email;
     @SerializedName("no_hp")
-    public String no_hp;
+    private String no_hp;
     @SerializedName("password")
-    public String password;
+    private String password;
 
     @SerializedName("id")
-    public int id;
+    private int id;
     @SerializedName("nama")
-    public String nama;
+    private String nama;
     @SerializedName("alamat")
-    public String alamat;
+    private String alamat;
     @SerializedName("berat_badan")
-    public int berat_badan;
+    private int berat_badan;
     @SerializedName("tinggi_badan")
-    public int tinggi_badan;
+    private int tinggi_badan;
     @SerializedName("gol_darah")
-    public String gol_darah;
+    private String gol_darah;
     @SerializedName("tgl_lahir")
-    public String tgl_lahir;
+    private String tgl_lahir;
     @SerializedName("jenis_kelamin")
-    public int jenis_kelamin;
+    private int jenis_kelamin;
+    @SerializedName("ktp")
+    private KTP ktp;
 
     public User(String email, String no_hp, String password, String nama, String alamat, int berat_badan, int tinggi_badan, String gol_darah, String tgl_lahir, String jenis_kelamin) {
         this.email = email;
@@ -46,6 +50,14 @@ public class User {
     public User(String no_hp, String password) {
         this.no_hp = no_hp;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -98,6 +110,14 @@ public class User {
 
     public int getJenis_kelamin() {
         return jenis_kelamin;
+    }
+
+    public KTP getKtp() {
+        return ktp;
+    }
+
+    public void setKtp(KTP ktp) {
+        this.ktp = ktp;
     }
 
     @Override

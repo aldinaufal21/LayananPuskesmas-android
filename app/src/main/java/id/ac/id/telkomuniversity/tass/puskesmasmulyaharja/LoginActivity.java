@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                     if(response.isSuccessful()){
                         if(response.body().getStatus() == 200) {
-                            sharedPref.edit().putString("user_id", ""+response.body().data.user.id).apply();
+                            sharedPref.edit().putString("user_id", ""+response.body().data.user.getId()).apply();
                             moveToMain();
                             LoginActivity.this.finish();
                         } else {

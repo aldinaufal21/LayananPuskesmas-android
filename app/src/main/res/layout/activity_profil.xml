@@ -26,10 +26,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/kotak_user"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="40dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -166,52 +167,25 @@
                     android:inputType="textPassword"
                     android:paddingLeft="10dp" />
 
-                <EditText
-                    android:id="@+id/formNIK"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/kotak_form"
-                    android:drawableStart="@drawable/ic_baseline_perm_identity_24"
-                    android:drawablePadding="10dp"
-                    android:hint="NIK"
-                    android:inputType="numberSigned"
-                    android:paddingLeft="10dp" />
-
-                <ImageView
-                    android:id="@+id/formFotoKTP"
+                <Button
+                    android:id="@+id/buttonUpdate2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kotak_shadow"
+                    android:text="Update" />
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/buttonUploadKTP"
                     android:layout_width="match_parent"
-                    android:layout_height="105dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/buttonPilihFile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="25dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/kotak_shadow"
-                        android:text="Ambil foto KTP" />
-
-                    <Button
-                        android:id="@+id/buttonUpdate2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="25dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/kotak_shadow"
-                        android:text="Update" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kotak_shadow"
+                    android:text="Upload KTP" />
 
             </LinearLayout>
         </LinearLayout>

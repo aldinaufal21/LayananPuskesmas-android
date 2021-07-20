@@ -33,11 +33,8 @@ public class ProfilActivity extends AppCompatActivity {
 
     private ActivityProfilBinding binding;
     ProgressDialog dialog = null;
-    private static final int CAMERA_REQUEST = 1888;
-    private ImageView imageView;
-    private static final int MY_CAMERA_PERMISSION_CODE = 100;
-
-    EasyImage easyImage;
+    private User pasien = null;
+    String id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +46,28 @@ public class ProfilActivity extends AppCompatActivity {
         dialog = new ProgressDialog(this);
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("login_key", Context.MODE_PRIVATE);
-        String id_user = sharedPref.getString("user_id", "1");
+        id_user = sharedPref.getString("user_id", "1");
 
+        getData(id_user);
+
+        binding.buttonUploadKTP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfilActivity.this, KtpActivity.class);
+                intent.putExtra("ktp", pasien.getKtp());
+                intent.putExtra("id_pasien", id_user);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getData(id_user);
+    }
+
+    public void getData(String id_user) {
         dialog.setMessage("Mengambil data profil Anda...");
         dialog.setIndeterminate(true);
         dialog.show();
@@ -60,7 +77,7 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.isSuccessful()) {
-                    User pasien = response.body().data.getUser();
+                    pasien = response.body().data.getUser();
                     binding.formNama.setText(pasien.getNama());
                     binding.formAlamat.setText(pasien.getAlamat());
                     binding.formBeratBadan.setText(pasien.getBerat_badan()+"");
@@ -75,46 +92,6 @@ public class ProfilActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
-            }
-        });
-
-        imageView = binding.formFotoKTP;
-        easyImage = new EasyImage.Builder(ProfilActivity.this)
-                .setChooserTitle("Pilih foto KTP")
-                .setChooserType(ChooserType.CAMERA_AND_GALLERY)
-                .setCopyImagesToPublicGalleryFolder(false)
-                .setFolderName("Puskesmas")
-                .allowMultiple(false)
-                .build();
-
-        binding.buttonPilihFile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                easyImage.openCameraForImage(ProfilActivity.this);
-            }
-        });
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        easyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
-            @Override
-            public void onMediaFilesPicked(MediaFile[] imageFiles, MediaSource source) {
-                Uri uri = Uri.fromFile(imageFiles[0].getFile());
-
-                imageView.setImageURI(uri);
-            }
-
-            @Override
-            public void onImagePickerError(@NonNull Throwable error, @NonNull MediaSource source) {
-                //Some error handling
-                error.printStackTrace();
-            }
-
-            @Override
-            public void onCanceled(@NonNull MediaSource source) {
-                //Not necessary to remove any files manually anymore
             }
         });
     }
