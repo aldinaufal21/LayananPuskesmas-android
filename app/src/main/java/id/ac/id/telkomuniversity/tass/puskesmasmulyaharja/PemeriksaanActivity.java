@@ -76,8 +76,8 @@ public class PemeriksaanActivity extends AppCompatActivity {
                     dialog.show();
                     poli = (Poli) spinner.getSelectedItem();
                     keluhan = binding.formKeluhan.getText().toString();
-                    SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("login_key", Context.MODE_PRIVATE);
 
+                    SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("login_key", Context.MODE_PRIVATE);
                     String id_user = sharedPref.getString("user_id", "1");
 
                     Pemeriksaan pemeriksaan = new Pemeriksaan(poli.getId(), keluhan, Integer.parseInt(id_user));
@@ -86,8 +86,9 @@ public class PemeriksaanActivity extends AppCompatActivity {
                     call.enqueue(new Callback<APIResponse>() {
                         @Override
                         public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
+                            Log.d("PEMERIKSAAN-PRE", call.request().toString());
                             if (response.isSuccessful()) {
-//                                Log.d("PEMERIKSAAN", response.body().message);
+                                Log.d("PEMERIKSAAN", response.body().toString());
                                 Toast.makeText(PemeriksaanActivity.this, "Berhasil membuat pemeriksaan", Toast.LENGTH_SHORT).show();
 
                                 new Handler().postDelayed(new Runnable() {

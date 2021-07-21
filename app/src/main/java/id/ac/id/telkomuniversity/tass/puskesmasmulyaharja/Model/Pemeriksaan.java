@@ -1,5 +1,6 @@
 package id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.text.SimpleDateFormat;
@@ -11,7 +12,7 @@ public class Pemeriksaan {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("created_at")
+    @SerializedName(value = "tanggal", alternate = "created_at")
     private String tanggal;
 
     @SerializedName("id_poli")
@@ -36,6 +37,7 @@ public class Pemeriksaan {
     private User pasien;
 
     @SerializedName("antrian")
+    @Expose(deserialize = false)
     private Antrian antrian;
 
     public Pemeriksaan(int id_poli, String keluhan, int id_pasien) {
@@ -141,5 +143,15 @@ public class Pemeriksaan {
 
     public Antrian getAntrian() {
         return antrian;
+    }
+
+    @Override
+    public String toString() {
+        return "Pemeriksaan{" +
+                "tanggal='" + tanggal + '\'' +
+                ", id_poli=" + id_poli +
+                ", keluhan='" + keluhan + '\'' +
+                ", id_pasien=" + id_pasien +
+                '}';
     }
 }
