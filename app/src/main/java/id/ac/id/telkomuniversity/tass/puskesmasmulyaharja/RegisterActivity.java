@@ -96,9 +96,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     dialog.dismiss();
                     Log.d("RESPONSE", response.toString());
                     if(response.body().status == 200){
-//                        Toast toast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT);
-//                        toast.show();
-//                        finish();
+                        Toast toast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT);
+                        toast.show();
+                        finish();
                     }
                 }
 

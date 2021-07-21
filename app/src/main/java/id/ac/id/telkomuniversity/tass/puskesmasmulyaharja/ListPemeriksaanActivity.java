@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Adapter.PemeriksaanListAdapter;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.Pemeriksaan;
@@ -25,6 +26,7 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
 
     private ActivityListPemeriksaanBinding binding;
     private RecyclerView recyclerView;
+    private TextView noData;
     ProgressDialog dialog = null;
     private PemeriksaanListAdapter adapter;
 
@@ -36,6 +38,7 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
         setContentView(view);
 
         recyclerView = binding.rvListPemeriksaan;
+        noData = binding.tvListPemeriksaanPlaceholder;
         dialog = new ProgressDialog(this);
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("login_key", Context.MODE_PRIVATE);
@@ -50,12 +53,17 @@ public class ListPemeriksaanActivity extends AppCompatActivity implements Pemeri
             @Override
             public void onResponse(Call<ListPemeriksaanResponse> call, Response<ListPemeriksaanResponse> response) {
                 if (response.isSuccessful()) {
+                    dialog.dismiss();
+                    if(response.body().data.pemeriksaans.size() == 0) {
+                        recyclerView.setVisibility(View.GONE);
+                        noData.setVisibility(View.VISIBLE);
+                        return;
+                    }
                     Log.d("PEMERIKSAAN", response.body().data.pemeriksaans.toString());
                     adapter = new PemeriksaanListAdapter(response.body().data.getPemeriksaans(), ListPemeriksaanActivity.this);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListPemeriksaanActivity.this);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(adapter);
-                    dialog.dismiss();
                 }
                 Log.d("GET PEMERIKSAAN LIST", response.raw().toString());
             }

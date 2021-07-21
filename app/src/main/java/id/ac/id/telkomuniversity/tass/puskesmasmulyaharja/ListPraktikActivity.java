@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Adapter.PraktikListAdapter;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.Praktik;
@@ -21,6 +22,7 @@ import retrofit2.Response;
 public class ListPraktikActivity extends AppCompatActivity implements PraktikListAdapter.OnItemClickListener {
 
     private RecyclerView recyclerView;
+    private TextView noData;
     private ActivityListPraktikBinding binding;
     ProgressDialog dialog = null;
     private PraktikListAdapter adapter;
@@ -33,6 +35,7 @@ public class ListPraktikActivity extends AppCompatActivity implements PraktikLis
         setContentView(view);
         
         recyclerView = binding.rvListPraktik;
+        noData = binding.tvListPraktikPlaceholder;
         dialog = new ProgressDialog(this);
 
         dialog.setMessage("Mengambil data praktik...");
@@ -44,12 +47,17 @@ public class ListPraktikActivity extends AppCompatActivity implements PraktikLis
             @Override
             public void onResponse(Call<PraktikResponse> call, Response<PraktikResponse> response) {
                 if (response.isSuccessful()) {
+                    dialog.dismiss();
+                    if(response.body().data.praktiks.size() == 0) {
+                        recyclerView.setVisibility(View.GONE);
+                        noData.setVisibility(View.VISIBLE);
+                        return;
+                    }
                     Log.d("PRAKTIK", response.body().data.praktiks.toString());
                     adapter = new PraktikListAdapter(response.body().data.getPraktiks(), ListPraktikActivity.this);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListPraktikActivity.this);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(adapter);
-                    dialog.dismiss();
                 }
                 Log.d("GET PRAKTIK LIST", response.raw().toString());
             }
