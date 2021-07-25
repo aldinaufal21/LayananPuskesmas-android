@@ -141,32 +141,6 @@
                     android:inputType="number"
                     android:paddingLeft="10dp" />
 
-                <EditText
-                    android:id="@+id/formEmail"
-                    android:layout_width="390dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/kotak_form"
-                    android:drawableStart="@drawable/ic_baseline_email_24"
-                    android:drawablePadding="10dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="10dp" />
-
-                <EditText
-                    android:id="@+id/formPassword"
-                    android:layout_width="390dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/kotak_form"
-                    android:drawableStart="@drawable/ic_baseline_vpn_key_24"
-                    android:drawablePadding="10dp"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:paddingLeft="10dp" />
-
                 <Button
                     android:id="@+id/buttonUpdate2"
                     android:layout_width="match_parent"

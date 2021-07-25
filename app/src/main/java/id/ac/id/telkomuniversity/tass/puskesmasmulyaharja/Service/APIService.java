@@ -26,6 +26,9 @@ public interface APIService {
     @POST("register")
     Call<UserResponse> register(@Body User user);
 
+    @POST("pasien/update/{id}")
+    Call<APIResponse> updateProfil(@Path("id") String id_pasien, @Body User user);
+
     @GET("pasien/id/{id}")
     Call<UserResponse> getPasienByID(@Path("id") String id_pasien);
 

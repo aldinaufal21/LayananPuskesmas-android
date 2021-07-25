@@ -15,9 +15,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Adapter.PemeriksaanListAdapter;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.User;
+import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.APIResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.UserResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Service.APIClient;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.databinding.ActivityProfilBinding;
@@ -85,7 +87,6 @@ public class ProfilActivity extends AppCompatActivity {
                     binding.formTinggiBadan.setText(pasien.getTinggi_badan()+"");
                     binding.formTglLahir.setText(pasien.getTgl_lahir());
                     binding.formNohp.setText(pasien.getNo_hp());
-                    binding.formEmail.setText(pasien.getEmail());
                     binding.spinnerJenisKelamin.setSelection(pasien.getJenis_kelamin()-1);
                     binding.spinnerGolDar.setSelection(((ArrayAdapter) binding.spinnerGolDar.getAdapter()).getPosition(pasien.getGol_darah()));
                     dialog.dismiss();
@@ -95,6 +96,45 @@ public class ProfilActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
+            }
+        });
+        
+        binding.buttonUpdate2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setMessage("Mengupdate profil Anda...");
+                dialog.setIndeterminate(true);
+                dialog.show();
+
+                User user = new User(
+                        binding.formEmail.getText().toString(),
+                        binding.formNohp.getText().toString(),
+                        binding.formPassword.getText().toString(),
+                        binding.formNama.getText().toString(),
+                        binding.formAlamat.getText().toString(),
+                        Integer.parseInt(binding.formBeratBadan.getText().toString()),
+                        Integer.parseInt(binding.formTinggiBadan.getText().toString()),
+                        binding.spinnerGolDar.getSelectedItem().toString(),
+                        binding.formTglLahir.getText().toString(),
+                        binding.spinnerJenisKelamin.getSelectedItem().toString()
+                );
+
+                Call<APIResponse> call1 = APIClient.getRetrofitInstance().updateProfil(id_user, user);
+                call1.enqueue(new Callback<APIResponse>() {
+                    @Override
+                    public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
+                        if(response.code() == 200) {
+                            Toast.makeText(ProfilActivity.this, "Update profil berhasil", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onFailure(Call<APIResponse> call, Throwable t) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }

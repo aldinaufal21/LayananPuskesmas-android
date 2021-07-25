@@ -52,6 +52,34 @@ public class User {
         this.password = password;
     }
 
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public void setBerat_badan(int berat_badan) {
+        this.berat_badan = berat_badan;
+    }
+
+    public void setTinggi_badan(int tinggi_badan) {
+        this.tinggi_badan = tinggi_badan;
+    }
+
+    public void setGol_darah(String gol_darah) {
+        this.gol_darah = gol_darah;
+    }
+
+    public void setTgl_lahir(String tgl_lahir) {
+        this.tgl_lahir = tgl_lahir;
+    }
+
+    public void setJenis_kelamin(int jenis_kelamin) {
+        this.jenis_kelamin = jenis_kelamin;
+    }
+
     public int getId() {
         return id;
     }
