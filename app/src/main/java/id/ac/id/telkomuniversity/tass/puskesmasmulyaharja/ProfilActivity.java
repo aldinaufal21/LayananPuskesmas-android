@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Adapter.PemeriksaanListAdapter;
@@ -85,6 +86,8 @@ public class ProfilActivity extends AppCompatActivity {
                     binding.formTglLahir.setText(pasien.getTgl_lahir());
                     binding.formNohp.setText(pasien.getNo_hp());
                     binding.formEmail.setText(pasien.getEmail());
+                    binding.spinnerJenisKelamin.setSelection(pasien.getJenis_kelamin()-1);
+                    binding.spinnerGolDar.setSelection(((ArrayAdapter) binding.spinnerGolDar.getAdapter()).getPosition(pasien.getGol_darah()));
                     dialog.dismiss();
                 }
                 Log.d("GET PEMERIKSAAN LIST", response.raw().toString());

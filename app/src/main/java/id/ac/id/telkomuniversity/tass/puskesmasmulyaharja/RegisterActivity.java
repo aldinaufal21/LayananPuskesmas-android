@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +20,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Model.User;
-import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.APIResponse;
+import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Responses.UserResponse;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.Service.APIClient;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.databinding.ActivityLoginBinding;
 import id.ac.id.telkomuniversity.tass.puskesmasmulyaharja.databinding.ActivityRegisterBinding;
@@ -33,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private int jenis_kelamin, berat_badan, tinggi_badan;
     ProgressDialog dialog = null;
     final Calendar myCalendar = Calendar.getInstance();
+    SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,27 +87,32 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     binding.formTglLahir.getText().toString(),
                     binding.spinnerJenisKelamin.getSelectedItem().toString()
             );
+            sharedPref = getApplicationContext().getSharedPreferences("login_key", Context.MODE_PRIVATE);
 
             Log.d("USER", user.toString());
 
-            Call<APIResponse> call = APIClient.getRetrofitInstance().register(user);
+            Call<UserResponse> call = APIClient.getRetrofitInstance().register(user);
             dialog.setMessage("Loading...");
             dialog.setIndeterminate(true);
             dialog.show();
-            call.enqueue(new Callback<APIResponse>() {
+            call.enqueue(new Callback<UserResponse>() {
                 @Override
-                public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
+                public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                     dialog.dismiss();
-                    Log.d("RESPONSE", response.toString());
-                    if(response.body().status == 200){
-                        Toast toast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT);
+                    if(response.code() == 200){
+                        Toast toast = Toast.makeText(getApplicationContext(), "Register berhasil", Toast.LENGTH_SHORT);
                         toast.show();
+                        sharedPref.edit().putString("user_id", ""+response.body().data.user.getId()).apply();
+                        String id_user = sharedPref.getString("user_id", "1");
+                        Intent intent = new Intent(getApplicationContext(), KtpActivity.class);
+                        intent.putExtra("id_pasien", id_user);
+                        startActivity(intent);
                         finish();
                     }
                 }
 
                 @Override
-                public void onFailure(Call<APIResponse> call, Throwable t) {
+                public void onFailure(Call<UserResponse> call, Throwable t) {
                     dialog.dismiss();
                 }
             });
