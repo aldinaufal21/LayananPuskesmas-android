@@ -21,7 +21,7 @@
                 android:layout_width="202dp"
                 android:layout_height="87dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:src="@drawable/logo_utama" />
 
             <LinearLayout
@@ -44,7 +44,7 @@
 
                 <EditText
                     android:id="@+id/formNama"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="50dp"
@@ -57,7 +57,7 @@
 
                 <EditText
                     android:id="@+id/formAlamat"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
@@ -71,7 +71,7 @@
 
                 <Spinner
                     android:id="@+id/spinnerJenisKelamin"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
@@ -80,7 +80,7 @@
 
                 <EditText
                     android:id="@+id/formBeratBadan"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
@@ -93,7 +93,7 @@
 
                 <EditText
                     android:id="@+id/formTinggiBadan"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
@@ -106,7 +106,7 @@
 
                 <Spinner
                     android:id="@+id/spinnerGolDar"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
@@ -115,7 +115,7 @@
 
                 <EditText
                     android:id="@+id/formTglLahir"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
@@ -130,7 +130,7 @@
 
                 <EditText
                     android:id="@+id/formNohp"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"

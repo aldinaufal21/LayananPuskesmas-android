@@ -47,6 +47,20 @@ public class User {
             this.jenis_kelamin = 2;
     }
 
+    public User(String no_hp, String nama, String alamat, int berat_badan, int tinggi_badan, String gol_darah, String tgl_lahir, String jenis_kelamin) {
+        this.no_hp = no_hp;
+        this.nama = nama;
+        this.alamat = alamat;
+        this.berat_badan = berat_badan;
+        this.tinggi_badan = tinggi_badan;
+        this.gol_darah = gol_darah;
+        this.tgl_lahir = tgl_lahir;
+        if(jenis_kelamin.equals("Laki-Laki"))
+            this.jenis_kelamin = 1;
+        else
+            this.jenis_kelamin = 2;
+    }
+
     public User(String no_hp, String password) {
         this.no_hp = no_hp;
         this.password = password;

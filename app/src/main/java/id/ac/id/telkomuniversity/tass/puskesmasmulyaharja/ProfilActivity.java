@@ -107,9 +107,7 @@ public class ProfilActivity extends AppCompatActivity {
                 dialog.show();
 
                 User user = new User(
-                        binding.formEmail.getText().toString(),
                         binding.formNohp.getText().toString(),
-                        binding.formPassword.getText().toString(),
                         binding.formNama.getText().toString(),
                         binding.formAlamat.getText().toString(),
                         Integer.parseInt(binding.formBeratBadan.getText().toString()),

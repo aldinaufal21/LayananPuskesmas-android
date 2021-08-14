@@ -16,9 +16,10 @@
         android:src="@drawable/logo_utama"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -44,7 +45,7 @@
         android:id="@+id/menu_informasi"
         android:layout_width="150dp"
         android:layout_height="190dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/kotak_menu"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/menu_antrian"
@@ -74,7 +75,7 @@
         android:id="@+id/menu_praktik"
         android:layout_width="150dp"
         android:layout_height="190dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/kotak_menu"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@+id/menu_pemeriksaan"
@@ -104,7 +105,7 @@
         android:layout_width="150dp"
         android:layout_height="190dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/kotak_menu"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -166,7 +167,9 @@
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_praktik" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_praktik"
+        app:layout_constraintVertical_bias="0.192" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

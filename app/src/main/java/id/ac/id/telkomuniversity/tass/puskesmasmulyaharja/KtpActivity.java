@@ -74,7 +74,7 @@ public class KtpActivity extends AppCompatActivity {
         binding.formFotoKTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                easyImage.openCameraForImage(KtpActivity.this);
+                easyImage.openGallery(KtpActivity.this);
             }
         });
 
