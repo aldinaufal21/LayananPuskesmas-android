@@ -51,7 +51,9 @@ public class ListPraktikActivity extends AppCompatActivity implements PraktikLis
                     if(response.body().data.praktiks.size() == 0) {
                         recyclerView.setVisibility(View.GONE);
                         noData.setVisibility(View.VISIBLE);
-                        return;
+                    }
+                    else {
+                        noData.setVisibility(View.GONE);
                     }
                     Log.d("PRAKTIK", response.body().data.praktiks.toString());
                     adapter = new PraktikListAdapter(response.body().data.getPraktiks(), ListPraktikActivity.this);

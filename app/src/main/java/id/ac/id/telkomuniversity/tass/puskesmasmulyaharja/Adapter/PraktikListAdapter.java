@@ -42,10 +42,15 @@ public class PraktikListAdapter extends RecyclerView.Adapter<PraktikListAdapter.
         holder.jenis_kelamin.setText(dokter.getJenis_kelamin());
         holder.ttl.setText(dokter.getTtl());
         holder.alamat.setText(dokter.getAlamat());
-        holder.foto.setImageResource(R.drawable.dokter);
         holder.poli.setText(poli.getNama_poli());
         holder.shift.setText(praktik.getJamShift());
         holder.itemView.setOnClickListener(v -> listener.onItemClick(praktik));
+
+        if (dokter.getJenis_kelamin().equalsIgnoreCase("Laki-Laki")){
+            holder.foto.setImageResource(R.drawable.doctor_male);
+        } else {
+            holder.foto.setImageResource(R.drawable.doctor_female);
+        }
     }
 
     @Override
